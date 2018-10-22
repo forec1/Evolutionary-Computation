@@ -1,0 +1,36 @@
+package hr.fer.zemris.optjava.dz2;
+
+import java.util.Random;
+
+import Jama.Matrix;
+
+public class Jednostavno {
+
+	public static void main(String[] args) {
+		
+		String problem = args[0];
+		long maxIter = Long.parseLong(args[1]);
+		
+		double x1, x2;
+		if(args.length == 4) {
+			x1 = Double.parseDouble(args[2]);
+			x2 = Double.parseDouble(args[3]);
+		}else {
+			x1 = (new Random()).nextDouble() * 10 - 5;
+			x2 = (new Random()).nextDouble() * 10 - 5;
+		}
+		
+		
+		Function1 f1 = new Function1();
+		double[][] A = {{x1}, {x2}};
+		Matrix gd = new Matrix(A);
+		Matrix nm = new Matrix(A);
+		
+		if(problem.equals("1a")) {
+			NumOptAlgorithms.gradDescentAlg(f1, 100000, gd);
+		} else if (problem.equals("1b")) {
+			NumOptAlgorithms.newtonMethodAlg(f1, 100000, nm);
+		}
+	}
+
+}
