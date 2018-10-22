@@ -1,0 +1,56 @@
+package hr.fer.zemris.trisat;
+
+public class SATFormulaStats {
+	
+	private SATFormula formula;
+	private int numberOfSatisfied;
+	private boolean isSatisfied;
+	private double precentageBonus;
+	private double[] post;
+	private final double precentageConstantUp = 0.01;
+	private final double precentageConstantDown = 0.1;
+	private final double precentageUnitAmount = 50;
+	
+	public SATFormulaStats(SATFormula formula) {
+		this.formula = formula;
+		post = new double[formula.getNumberOfClauses()];
+		for(double p : post) {
+			p = 0.0;
+		}
+	}
+	
+	public void setAssignment(BitVector assignment, boolean updatePercentages) {
+		int numberOfClauses = formula.getNumberOfClauses();
+		precentageBonus = 0;
+		for(int i = 0; i < numberOfClauses; i++) {
+			Clause clause = formula.getClause(i);
+			if(clause.isSatisfied(assignment) && updatePercentages) {
+				numberOfSatisfied++;
+				post[i] += (1 - post[i]) * precentageConstantUp; 
+				precentageBonus += precentageUnitAmount * (1 - post[i]);
+			} else if (clause.isSatisfied(assignment) && updatePercentages) {
+				post[i] += (0 - post[i]) * precentageConstantDown;
+				precentageBonus += precentageUnitAmount * (1 - post[i]);
+			} else if (clause.isSatisfied(assignment)) {
+				numberOfSatisfied++;
+			}
+		}
+		isSatisfied = formula.isSatisfied(assignment);
+	}
+	
+	public int getNumberOfSatisfied() {
+		return numberOfSatisfied;
+	}
+	
+	public boolean isSatisfied() {
+		return isSatisfied;
+	}
+	
+	public double getPercentageBonus() {
+		return precentageBonus;
+	}
+	
+	public double getPercentage(int index) {
+		return post[index];
+	}
+}

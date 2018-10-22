@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 3 packages to &apos;DZ-01/src&apos;&#x0A;- Original project: &apos;DZ-01-pom&apos;&#x0A;- Destination element: &apos;DZ-01/src&apos;&#x0A;- Original elements:&#x0A;     DZ-01-pom/src/hr.fer.zemris.trisat&#x0A;     DZ-01-pom/src/hr.fer.zemris.parser&#x0A;     DZ-01-pom/src/hr.fer.zemris.trisat.algorithms&#x0A;- Update references to refactored element" description="Move packages" destination="=DZ-01/src" element1="/src&lt;hr.fer.zemris.trisat" element2="/src&lt;hr.fer.zemris.parser" element3="/src&lt;hr.fer.zemris.trisat.algorithms" flags="589830" fragments="3" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1539630761240" version="1.0"/>
+</session>

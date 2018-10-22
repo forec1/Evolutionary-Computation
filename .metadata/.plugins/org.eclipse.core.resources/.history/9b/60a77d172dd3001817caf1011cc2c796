@@ -1,0 +1,23 @@
+package hr.fer.zemris.optjava.dz2;
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+import javax.swing.JComponent;
+
+public class FunctionDraw extends JComponent{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
+		g.setColor(Color.RED);
+		g.drawString("FILIP", 20, 20);
+	}
+}

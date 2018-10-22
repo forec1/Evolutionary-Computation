@@ -1,0 +1,128 @@
+package hr.fer.zemris.trisat;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+public class Algorithms {
+	
+	public static BitVector allPossibilitiesAlg(SATFormula formula) {
+		
+		int numberOfVariables = formula.getNumberOfVariables();
+		BitVector ret = null;
+		MutableBitVector bits = new MutableBitVector(numberOfVariables);
+		
+		for(int i = 1; i <= Math.pow(2, numberOfVariables); i++) {
+			if(formula.isSatisfied(bits)) {
+//				System.out.println(bits);
+				if(ret == null) {
+					
+					//nova referenca za rijesenje
+					boolean[] correctBits = new boolean[numberOfVariables];
+					for(int j = 0; j < numberOfVariables; j++) {
+						correctBits[j] = bits.get(j);
+					}
+					ret = new BitVector(correctBits);
+				}
+			}
+			bits.set(numberOfVariables - 1, !bits.get(numberOfVariables - 1));
+			
+			int temp = numberOfVariables - 1;
+			while(temp > 0) {
+				if(i % Math.pow(2, temp) == 0) {
+					int index = numberOfVariables - temp - 1;
+					boolean value = bits.get(index);
+					bits.set(index, !value);
+				}
+				temp--;
+			}
+		}
+		return ret;
+	}
+	
+	public static BitVector iterAlg(SATFormula formula) {
+		
+		int numberOfVariables = formula.getNumberOfVariables();
+		BitVector solution = new BitVector(new Random(), numberOfVariables);
+		int paramIter = 100000;
+		while(paramIter > 0) {
+			double fit = fit(solution, formula);
+			BitVector[] neighborhood = shiftFunction(solution);
+			BitVector[] bestSolutions = new BitVector[neighborhood.length];
+			
+			// traženje maksimalne dobrote
+			double max = 0;
+			for(int i = 0; i < neighborhood.length; i++) {
+				double newFit = fit(neighborhood[i], formula);
+				if(newFit > max) {
+					max = newFit;
+				}
+			}
+			
+			// ako je maksimalna dobrota susjeda manja od dobrote rjesenja dojavi neuspjeh
+			if(max < fit) { 
+				System.out.println("Local minimum! Failure!");
+				return null;
+			}
+			
+			// trazenje svih rjesenja sa maksimalnom dobrotom
+			int numberOfBest = 0;
+			for(int i = 0; i < neighborhood.length; i++) {
+				fit = fit(neighborhood[i], formula);
+				if(Math.abs(fit - max) < 10e-6) {
+					bestSolutions[numberOfBest] = neighborhood[i];
+					numberOfBest++;
+				}
+			}
+			
+			//biranje nasumičnog rjesenja
+			Random rand = new Random();
+			int n = rand.nextInt(numberOfBest);
+			solution = bestSolutions[n];
+			
+			paramIter--;
+		}
+		return solution;
+	}
+	
+	public static void iterAlgMod(SATFormula formula) {
+		int numberOfVariables = formula.getNumberOfVariables();
+		BitVector solution = new BitVector(new Random(), numberOfVariables);
+		SATFormulaStats formulaStats = new SATFormulaStats(formula);
+		int paramIter = 100000;
+		while(paramIter > 0) {
+			formulaStats.setAssignment(solution, true);
+			
+			Map<BitVector, Double> neighborToFit = new HashMap<BitVector, Double>();
+			BitVector[] neighborhood = shiftFunction(solution);
+			for(BitVector neighbor : neighborhood) {
+				formulaStats.setAssignment(neighbor, true);
+				int Z = formulaStats.getNumberOfSatisfied();
+				double fit = Z + formulaStats.getPercentageBonus();
+				neighborToFit.put(neighbor, fit);
+			}
+			
+			
+			
+			
+			paramIter--;
+		}
+	}
+	
+	
+	private static double fit(BitVector solution, SATFormula formula) {
+		int numberOfClauses = formula.getNumberOfClauses();
+		int numberOfSatisfiedClauses = 0;
+		for(int i = 0; i < numberOfClauses; i++) {
+			boolean satisfied = formula.getClause(i).isSatisfied(solution);
+			numberOfSatisfiedClauses += satisfied ? 1 : 0;
+		}
+		return numberOfSatisfiedClauses / numberOfClauses;
+	}
+	
+	private static BitVector[] shiftFunction(BitVector solution) {
+		BitVectorNGenerator gen = new BitVectorNGenerator(solution);
+		return gen.createNeighborhood();
+		
+	}
+}

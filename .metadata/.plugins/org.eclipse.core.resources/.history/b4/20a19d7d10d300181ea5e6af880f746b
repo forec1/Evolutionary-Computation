@@ -1,0 +1,9 @@
+package aaa;
+
+import Jama.Matrix;
+
+public interface IHFunction extends IFunction{
+	
+	public Matrix getHesseMatrix(double x);
+
+}

@@ -1,0 +1,22 @@
+package hr.fer.zemris.optjava.dz2;
+
+import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+import javax.swing.JComponent;
+
+public class FunctionDraw extends JComponent{
+	
+	public void paintComponent(Graphics2D g) {
+		
+		int w = this.getWidth();
+		int h = this.getHeight();
+		
+		g.setStroke(new BasicStroke(2));
+		g.setColor(Color.black);
+		g.drawLine(0, h, w*2, h);
+		g.drawLine(w, 0, w, h*2);
+	}
+
+}

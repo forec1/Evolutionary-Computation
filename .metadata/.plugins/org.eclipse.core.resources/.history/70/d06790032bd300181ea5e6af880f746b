@@ -1,0 +1,29 @@
+package hr.fer.zemris.optjava.dz2;
+
+import java.awt.Color;
+import java.util.Random;
+
+import javax.swing.JFrame;
+
+import Jama.Matrix;
+
+public class Jednostavno {
+
+	public static void main(String[] args) {
+		
+		Function1 f1 = new Function1();
+		double x1 = (new Random()).nextDouble() * 10 - 5;
+		double x2 = (new Random()).nextDouble() * 10 - 5;
+		double[][] A = {{x1}, {x2}};
+		Matrix gd = new Matrix(A);
+		Matrix nm = new Matrix(A);
+		JFrame jf = new JFrame();
+		jf.setVisible(true);
+		jf.setBackground(Color.BLUE);
+		jf.setBounds(500, 500, 500, 500);
+		jf.add(new FunctionDraw());
+		NumOptAlgorithms.gradDescentAlg(f1, 100000, gd);
+		NumOptAlgorithms.newtonMethodAlg(f1, 100000, nm);
+	}
+
+}

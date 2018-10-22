@@ -1,0 +1,10 @@
+package hr.fer.zemris.optjava.dz2.numopt;
+
+import Jama.Matrix;
+
+public interface IFunction {
+	
+	public int getNumberOfVariables();
+	public Matrix value(Matrix x);
+	public Matrix getGrad(Matrix x);
+}
