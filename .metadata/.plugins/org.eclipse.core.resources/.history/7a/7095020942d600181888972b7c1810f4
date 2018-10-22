@@ -33,23 +33,15 @@ public class ErrorFunction implements IHFunction{
 		if(x.getColumnDimension() != 1) {
 			throw new IllegalArgumentException("x must be vector");
 		}
-		
-		// n1*x1+...+n10*x10 - yi
-		double[][] error = new double[numOfVariables][1]; // pogreška za svaku funkciju posebno
+		Matrix val = systemMatrix.times(x).minus(y);
 		for(int i = 0; i < numOfVariables; i++) {
-			for(int j = 0; j < numOfVariables; j++) {
-				error[i][0] += systemMatrix.get(i, j) * x.get(j, 0);
-			}
-			error[i][0] -= y.get(i, 0);
+			val.set(i, 0, Math.pow(val.get(i, 0), 2));
 		}
+		double ret = 0.0;
 		for(int i = 0; i < numOfVariables; i++) {
-			error[i][0] = Math.pow(error[i][0], 2);
+			ret += val.get(i, 0);
 		}
-		double sum = 0.0;
-		for(int i = 0; i < numOfVariables; i++) {
-			sum += error[i][0];
-		}
-		return sum;
+		return ret;
 	}
 
 	public Matrix getGrad(Matrix x) {
@@ -57,20 +49,35 @@ public class ErrorFunction implements IHFunction{
 			throw new IllegalArgumentException("Number of rows of x is wrong!");
 		}
 		if(x.getColumnDimension() != 1) {
-			throw new IllegalArgumentException("x must be a vector");
+			throw new IllegalArgumentException("x must be vector");
 		}
+//		Matrix error = systemMatrix.times(x).minus(y).times(2);
+//		double[][] grad = new double[numOfVariables][1];
+//		
+//		for(int i = 0; i < numOfVariables; i++) {
+//			double gradi = 0.0;
+//			for(int j = 0; j < numOfVariables; j++) {
+//				gradi += error.get(j, 0) * systemMatrix.get(j, i);
+//			}
+//			grad[i][0] = gradi;
+//		}
+//		return new Matrix(grad); 
+		
+		
+/*		double[][] grad = new double[numOfVariables][1];
+		for(int i = 0; i < numOfRows; i++) {
+			for(int j = 0; j < numOfColumns - 1; j++) {
+				grad[i][0] += systemMatrix.get(i, j) * x.get(j, 0);
+			}
+			grad[i][0] = 2 * (grad[i][0] - yi[i]) * x.get(i, 0); 
+		}
+		return new Matrix(grad);*/
 		
 		double[][] grad = new double[numOfVariables][1];
-		
-		// 2*(n1*x1+...+n10*x10 - y1)
-		// 2*(n1*x1+...+n10*x10 - y2) ...
-		Matrix error = systemMatrix.times(x).minus(y).times(2);		// N x 1
+		Matrix error = systemMatrix.times(x).minus(y).times(2);
 		for(int i = 0; i < numOfVariables; i++) {
 			double gradi = 0.0;
 			for(int j = 0; j < numOfVariables; j++) {
-				
-				// grad_1 = 2*(n1*x1+...+n10*x10 - y1)*n1 + 2*(n1*x1+...+n10*x10)*n1 + ... 
-				// grad_2 = 2*(n1*x1+...+n10*x10 - y1)*n2 + 2*(n1*x1+...+n10*x10)*n2 + ...
 				gradi += error.get(j, 0) * systemMatrix.get(j, i);
 			}
 			grad[i][0] = gradi;

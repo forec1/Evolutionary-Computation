@@ -33,23 +33,15 @@ public class ErrorFunction implements IHFunction{
 		if(x.getColumnDimension() != 1) {
 			throw new IllegalArgumentException("x must be vector");
 		}
-		
-		// n1*x1+...+n10*x10 - yi
-		double[][] error = new double[numOfVariables][1]; // pogreška za svaku funkciju posebno
+		Matrix val = systemMatrix.times(x).minus(y);
 		for(int i = 0; i < numOfVariables; i++) {
-			for(int j = 0; j < numOfVariables; j++) {
-				error[i][0] += systemMatrix.get(i, j) * x.get(j, 0);
-			}
-			error[i][0] -= y.get(i, 0);
+			val.set(i, 0, Math.pow(val.get(i, 0), 2));
 		}
+		double ret = 0.0;
 		for(int i = 0; i < numOfVariables; i++) {
-			error[i][0] = Math.pow(error[i][0], 2);
+			ret += val.get(i, 0);
 		}
-		double sum = 0.0;
-		for(int i = 0; i < numOfVariables; i++) {
-			sum += error[i][0];
-		}
-		return sum;
+		return ret;
 	}
 
 	public Matrix getGrad(Matrix x) {

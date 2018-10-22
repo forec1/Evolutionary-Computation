@@ -35,12 +35,12 @@ public class ErrorFunction implements IHFunction{
 		}
 		
 		// n1*x1+...+n10*x10 - yi
-		double[][] error = new double[numOfVariables][1]; // pogreška za svaku funkciju posebno
+		// Matrix val = systemMatrix.times(x).minus(y);	// N x 1
+		double[][] error = new double[numOfVariables][1];
 		for(int i = 0; i < numOfVariables; i++) {
 			for(int j = 0; j < numOfVariables; j++) {
-				error[i][0] += systemMatrix.get(i, j) * x.get(j, 0);
+				error[i][0] += systemMatrix.get(i, j) * x.get(i, 0) - y.get(i, 0);
 			}
-			error[i][0] -= y.get(i, 0);
 		}
 		for(int i = 0; i < numOfVariables; i++) {
 			error[i][0] = Math.pow(error[i][0], 2);

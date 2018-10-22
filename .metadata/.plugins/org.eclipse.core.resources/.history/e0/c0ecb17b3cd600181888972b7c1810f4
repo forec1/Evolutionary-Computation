@@ -95,7 +95,7 @@ public class NumOptAlgorithms {
 		int n = vector.getRowDimension();
 		boolean isNullVector = true;
 		for(int i = 0; i < n; i++) {
-			if(Math.abs(vector.get(i, 0)) > 10e-2) {
+			if(Math.abs(vector.get(i, 0)) > 10e-3) {
 				isNullVector = false;
 			}
 		}
