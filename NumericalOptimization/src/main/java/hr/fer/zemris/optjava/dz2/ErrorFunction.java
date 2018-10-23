@@ -102,25 +102,3 @@ public class ErrorFunction implements IHFunction{
 		return hesse;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

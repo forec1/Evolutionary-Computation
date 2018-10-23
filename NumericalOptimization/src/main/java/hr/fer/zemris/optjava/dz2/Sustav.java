@@ -44,10 +44,10 @@ public class Sustav {
 		String method = args[0];
 		
 		if(method.equals("grad")) {
-			Matrix solution = NumOptAlgorithms.gradDescentAlg(e, maxIter, x0);
+			Matrix solution = NumOptAlgorithms.gradDescentAlg(e, maxIter, x0,Sustav.class);
 			System.out.println("Pogreska: " + e.value(solution));
 		} else if (method.equals("newton")) {
-			Matrix solution = NumOptAlgorithms.newtonMethodAlg(e, maxIter, x0);
+			Matrix solution = NumOptAlgorithms.newtonMethodAlg(e, maxIter, x0, Sustav.class);
 			System.out.println("Pogreska: " + e.value(solution));
 		}
 	}

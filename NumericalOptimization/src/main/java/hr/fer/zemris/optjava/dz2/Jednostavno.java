@@ -24,16 +24,16 @@ public class Jednostavno {
 		if(problem.startsWith("1")) {
 			Function1 f1 = new Function1();
 			if(problem.equals("1a")) {
-				NumOptAlgorithms.gradDescentAlg(f1, maxIter, x0);
+				NumOptAlgorithms.gradDescentAlg(f1, maxIter, x0, Jednostavno.class);
 			} else if (problem.equals("1b")) {
-				NumOptAlgorithms.newtonMethodAlg(f1, maxIter, x0);
+				NumOptAlgorithms.newtonMethodAlg(f1, maxIter, x0, Jednostavno.class);
 			}
 		} else if(problem.startsWith("2")) {
 			Function2 f2 = new Function2();
 			if(problem.equals("2a")) {
-				NumOptAlgorithms.gradDescentAlg(f2, maxIter, x0);
+				NumOptAlgorithms.gradDescentAlg(f2, maxIter, x0, Jednostavno.class);
 			} else if(problem.equals("2b")) {
-				NumOptAlgorithms.gradDescentAlg(f2, maxIter, x0);
+				NumOptAlgorithms.newtonMethodAlg(f2, maxIter, x0, Jednostavno.class);
 			}
 		}
 	}

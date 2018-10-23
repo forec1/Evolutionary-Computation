@@ -1,0 +1,24 @@
+package hr.fer.zemris.optjava.dz2;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+
+import Jama.Matrix;
+
+public class ImageTrajectory {
+	
+	private BufferedImage bi;
+	private Matrix x;
+	
+	public ImageTrajectory(Matrix x) {
+		bi = new BufferedImage(400, 400, BufferedImage.TYPE_INT_ARGB);
+		this.x = x;
+	}
+	
+	public void put(Matrix x) {
+		Graphics2D ig2 = bi.createGraphics();
+		ig2.setPaint(Color.black);
+	}
+
+}

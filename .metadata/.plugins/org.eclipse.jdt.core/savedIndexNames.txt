@@ -9,9 +9,8 @@ INDEX VERSION 1.131+/home/filip/Filip/FER/sem5/opt-java/dz/.metadata/.plugins/or
 2351950640.index
 3066711521.index
 925982370.index
-821608291.index
 3485262699.index
-3776902406.index
+821608291.index
 3530540584.index
 813341167.index
 2589000052.index

@@ -3,7 +3,7 @@ package hr.fer.zemris.optjava.dz2;
 import Jama.Matrix;
 
 /**
- * Funkcija oblika f(x1, x2) = x1^2 + (x2 - 1)^2
+ * Funkcija oblika f(x1, x2) = x1² + (x2 - 1)²
  * @author filip
  *
  */

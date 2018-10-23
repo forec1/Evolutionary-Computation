@@ -6,36 +6,57 @@ public class NumOptAlgorithms {
 	
 	/**
 	 * Algoritam gradijentnog spusta.
+	 * @param <T>
 	 * @param function Funkcija
 	 * @param maxIter Maksimalan broj iteracija
 	 * @param x0 Početna točka
 	 * @return Minimum funkcije
 	 */
-	public static Matrix gradDescentAlg(IFunction function, long maxIter, Matrix x0) {
+	public static <T> Matrix gradDescentAlg(IFunction function, long maxIter, Matrix x0, Class<T> callerClass) {
 		Matrix x = x0;
+		ImageTrajectory im = null;
+		if(callerClass.equals(Jednostavno.class)) {
+			im = new ImageTrajectory(x);
+		}
 		for(int i = 0; i < maxIter; i++) {
 			printVector(x);
 			System.out.println("iteracija: " + i);
 			Matrix grad = function.getGrad(x);
 			if(isNullVector(grad)) {
+				if(callerClass.equals(Jednostavno.class)) {
+					im.save("/home/orec/Pictures/grad_descent_traj.PNG");
+				}
 				return x;
 			}
 			double lambda = optimizeLambda(function, x, grad);
 			
 			// x = x - lambda * grad
 			x = x.minus(grad.times(lambda));
+			if(callerClass.equals(Jednostavno.class)) {
+				im.put(x);
+			}
 			
+		}
+		if(callerClass.equals(Jednostavno.class)) {
+			im.save("/home/orec/Pictures/grad_descent_traj.PNG");
 		}
 		return x;
 	}
 	
-	public static Matrix newtonMethodAlg(IHFunction function, long maxIter, Matrix x0) {
+	public static <T> Matrix newtonMethodAlg(IHFunction function, long maxIter, Matrix x0, Class<T> callerClass) {
 		Matrix x = x0;
+		ImageTrajectory im = null;
+		if(callerClass.equals(Jednostavno.class)) {
+			im = new ImageTrajectory(x);
+		}
 		for(int i = 0; i < maxIter; i++) {
 			printVector(x);
 			System.out.println("iteracija: " + i);
 			Matrix grad = function.getGrad(x);
 			if(isNullVector(grad)) {
+				if(callerClass.equals(Jednostavno.class)) {
+					im.save("/home/orec/Pictures/newton_traj.PNG");
+				}
 				return x;
 			}
 			Matrix hesse = function.getHesseMatrix(x);
@@ -45,7 +66,13 @@ public class NumOptAlgorithms {
 			
 			//x = x + lambda * tau
 			x = x.plus(tau.times(lambda));
+			if(callerClass.equals(Jednostavno.class)) {
+				im.put(x);
+			}
 			
+		}
+		if(callerClass.equals(Jednostavno.class)) {
+			im.save("/home/orec/Pictures/newton_traj.PNG");
 		}
 		return x;
 	}
