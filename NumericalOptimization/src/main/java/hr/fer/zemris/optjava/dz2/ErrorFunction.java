@@ -35,19 +35,19 @@ public class ErrorFunction implements IHFunction{
 		}
 		
 		// n1*x1+...+n10*x10 - yi
-		double[][] error = new double[numOfVariables][1]; // pogreška za svaku funkciju posebno
+		double[] error = new double[numOfVariables]; // pogreška za svaku funkciju posebno
 		for(int i = 0; i < numOfVariables; i++) {
 			for(int j = 0; j < numOfVariables; j++) {
-				error[i][0] += systemMatrix.get(i, j) * x.get(j, 0);
+				error[i] += systemMatrix.get(i, j) * x.get(j, 0);
 			}
-			error[i][0] -= y.get(i, 0);
+			error[i] -= y.get(i, 0);
 		}
 		for(int i = 0; i < numOfVariables; i++) {
-			error[i][0] = Math.pow(error[i][0], 2);
+			error[i] = Math.pow(error[i], 2);
 		}
 		double sum = 0.0;
 		for(int i = 0; i < numOfVariables; i++) {
-			sum += error[i][0];
+			sum += error[i];
 		}
 		return sum;
 	}
@@ -79,8 +79,48 @@ public class ErrorFunction implements IHFunction{
 	}
 
 	public Matrix getHesseMatrix(Matrix x) {
-		// TODO Auto-generated method stub
-		return null;
+		if(x.getRowDimension() != systemMatrix.getRowDimension()) {
+			throw new IllegalArgumentException("Number of rows of x is wrong!");
+		}
+		if(x.getColumnDimension() != 1) {
+			throw new IllegalArgumentException("x must be a vector");
+		}
+		Matrix hesse = new Matrix(numOfVariables, numOfVariables);
+		
+		/*  
+		 * d2f/dx1dx2 = 2*n1*n2 
+		 * d2f/dx1dx2 = 2*n1*n3  	*/
+		for(int i = 0; i < numOfVariables; i++) {
+			for(int j = 0; j < numOfVariables; j++) {
+				double val = 0.0;
+				for(int k = 0; k < numOfVariables; k++) {
+					val += 2 * systemMatrix.get(k, i) * systemMatrix.get(k, j);
+				}
+				hesse.set(i, j, val);
+			}
+		}
+		return hesse;
 	}
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

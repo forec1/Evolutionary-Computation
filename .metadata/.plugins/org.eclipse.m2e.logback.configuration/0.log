@@ -1902,3 +1902,76 @@
 2018-10-22 23:50:27,039 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
 2018-10-22 23:50:27,040 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-10-22 23:50:27,040 [Worker-71: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-22 23:58:11,798 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-22 23:58:11,799 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-22 23:58:11,801 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-22 23:58:11,802 [Worker-75: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 12:31:41,570 [Worker-2: Loading available Gradle versions] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-10-23 12:37:09,091 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 12:37:09,104 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 12:37:09,108 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 12:37:09,109 [Worker-7: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 12:41:07,434 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 12:41:07,434 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 12:41:07,436 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 12:41:07,437 [Worker-15: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 12:49:57,894 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 12:49:57,894 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 12:49:57,896 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 12:49:57,896 [Worker-17: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:01:54,452 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:01:54,470 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:01:54,472 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:01:54,477 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:02:55,633 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:02:55,633 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:02:55,635 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:02:55,635 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:03:54,330 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:03:54,331 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:03:54,332 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:03:54,333 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:04:05,253 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:04:05,253 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:04:05,254 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:04:05,255 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:05:00,052 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:05:00,052 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:05:00,054 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:05:00,054 [Worker-24: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:05:21,176 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:05:21,177 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:05:21,178 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:05:21,178 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:05:27,381 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:05:27,381 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:05:27,383 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:05:27,383 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:07:14,531 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:07:14,531 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:07:14,533 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:07:14,533 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:08:10,136 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:08:10,137 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:08:10,138 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:08:10,138 [Worker-21: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:09:27,901 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:09:27,901 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:09:27,903 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:09:27,903 [Worker-19: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:09:41,429 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:09:41,429 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:09:41,431 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:09:41,432 [Worker-23: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:15:37,650 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:15:37,650 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:15:37,652 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:15:37,652 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:17:44,982 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:17:45,003 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:17:45,006 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:17:45,007 [Worker-26: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources
+2018-10-23 13:18:05,860 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:18:05,860 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/main/resources
+2018-10-23 13:18:05,862 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-10-23 13:18:05,862 [Worker-28: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/src/test/resources

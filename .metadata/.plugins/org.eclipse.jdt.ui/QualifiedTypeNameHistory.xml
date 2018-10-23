@@ -34,7 +34,6 @@
     <fullyQualifiedTypeName name="hr.fer.zemris.numopt.IFunction"/>
     <fullyQualifiedTypeName name="hr.fer.zemris.optjava.dz2.Function1"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
-    <fullyQualifiedTypeName name="hr.fer.zemris.optjava.dz2.NumOptAlgorithms"/>
     <fullyQualifiedTypeName name="java.awt.BasicStroke"/>
     <fullyQualifiedTypeName name="java.awt.Polygon"/>
     <fullyQualifiedTypeName name="javax.swing.JComponent"/>
@@ -45,13 +44,15 @@
     <fullyQualifiedTypeName name="java.awt.GridLayout"/>
     <fullyQualifiedTypeName name="hr.fer.zemris.optjava.dz2.FunctionDraw"/>
     <fullyQualifiedTypeName name="java.awt.Graphics2D"/>
-    <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
     <fullyQualifiedTypeName name="java.io.File"/>
-    <fullyQualifiedTypeName name="java.lang.Double"/>
-    <fullyQualifiedTypeName name="hr.fer.zemris.optjava.dz2.IHFunction"/>
     <fullyQualifiedTypeName name="hr.fer.zemris.optjava.dz2.IFunction"/>
+    <fullyQualifiedTypeName name="hr.fer.zemris.optjava.dz2.IHFunction"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="hr.fer.zemris.optjava.dz2.Function2"/>
+    <fullyQualifiedTypeName name="hr.fer.zemris.optjava.dz2.NumOptAlgorithms"/>
     <fullyQualifiedTypeName name="Jama.Matrix"/>
 </qualifiedTypeNameHistroy>

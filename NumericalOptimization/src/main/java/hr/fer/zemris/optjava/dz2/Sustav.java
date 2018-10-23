@@ -16,7 +16,6 @@ public class Sustav {
 			System.exit(0);
 		}
 		
-		String method = args[0];
 		long maxIter = Long.parseLong(args[1]);
 		String sPath = args[2];
 		
@@ -36,14 +35,20 @@ public class Sustav {
 		br.close();
 		Matrix systemMatrix = new Matrix(system);
 		ErrorFunction e = new ErrorFunction(systemMatrix);
-		
 		Random rand = new Random();
 		double[][] x0Array = new double[10][1];
 		for(int k = 0; k < 10; k++) {
 			x0Array[k][0] = rand.nextDouble() * 10 - 5;
 		}
 		Matrix x0 = new Matrix(x0Array);
-		Matrix solution = NumOptAlgorithms.gradDescentAlg(e, maxIter, x0);
-		System.out.println("Pogreska: " + e.value(solution));
+		String method = args[0];
+		
+		if(method.equals("grad")) {
+			Matrix solution = NumOptAlgorithms.gradDescentAlg(e, maxIter, x0);
+			System.out.println("Pogreska: " + e.value(solution));
+		} else if (method.equals("newton")) {
+			Matrix solution = NumOptAlgorithms.newtonMethodAlg(e, maxIter, x0);
+			System.out.println("Pogreska: " + e.value(solution));
+		}
 	}
 }

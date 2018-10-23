@@ -11,7 +11,7 @@
     <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_CLASSPATH_ONLY_JAR" value="false"/>
     <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
     <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="hr.fer.zemris.optjava.dz2.Sustav"/>
-    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="a 100000 /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/02-zad-sustav.txt"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="newton 10000 /home/filip/Filip/FER/sem5/opt-java/dz/NumericalOptimization/02-zad-sustav.txt"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="NumericalOptimization"/>
     <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
 </launchConfiguration>

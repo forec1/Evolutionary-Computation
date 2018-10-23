@@ -26,7 +26,7 @@ public class NumOptAlgorithms {
 			x = x.minus(grad.times(lambda));
 			
 		}
-		return null;
+		return x;
 	}
 	
 	public static Matrix newtonMethodAlg(IHFunction function, long maxIter, Matrix x0) {
@@ -47,7 +47,7 @@ public class NumOptAlgorithms {
 			x = x.plus(tau.times(lambda));
 			
 		}
-		return null;
+		return x;
 	}
 	
 	private static void printVector(Matrix A) {
