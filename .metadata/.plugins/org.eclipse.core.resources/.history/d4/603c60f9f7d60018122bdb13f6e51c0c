@@ -5,12 +5,11 @@ import Jama.Matrix;
 public class NumOptAlgorithms {
 	
 	/**
-	 * Gradient descent algorithm
-	 * @param function Function
-	 * @param maxIter Maximum number of iterations
-	 * @param x0 Starting point
-	 * @param callerClass Class that calls this method
-	 * @return Minimum of function
+	 * Algoritam gradijentnog spusta.
+	 * @param function Funkcija
+	 * @param maxIter Maksimalan broj iteracija
+	 * @param x0 Početna točka
+	 * @return Minimum funkcije
 	 */
 	public static <T> Matrix gradDescentAlg(IFunction function, long maxIter, Matrix x0, Class<T> callerClass) {
 		Matrix x = x0;
@@ -43,14 +42,6 @@ public class NumOptAlgorithms {
 		return x;
 	}
 	
-	/**
-	 * Newton method algorithm
-	 * @param function Function
-	 * @param maxIter Maximum number of iterations
-	 * @param x0 Starting point
-	 * @param callerClass Class that calls this method
-	 * @return Minimum of function
-	 */
 	public static <T> Matrix newtonMethodAlg(IHFunction function, long maxIter, Matrix x0, Class<T> callerClass) {
 		Matrix x = x0;
 		ImageTrajectory im = null;

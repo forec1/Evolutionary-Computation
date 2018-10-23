@@ -19,7 +19,6 @@ public class Jednostavno {
 			x1 = (new Random()).nextDouble() * 10 - 5;
 			x2 = (new Random()).nextDouble() * 10 - 5;
 		}
-		
 		double[][] A = {{x1}, {x2}};
 		Matrix x0 = new Matrix(A);
 		if(problem.startsWith("1")) {

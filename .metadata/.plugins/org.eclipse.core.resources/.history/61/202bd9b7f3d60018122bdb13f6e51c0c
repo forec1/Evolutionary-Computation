@@ -2,54 +2,26 @@ package hr.fer.zemris.optjava.dz2;
 
 import Jama.Matrix;
 
-/**
- * Function that represents error of system of linear equations.
- * @author filip
- *
- */
 public class ErrorFunction implements IHFunction{
 	
-	/**
-	 * Matrix that holds coefficients of system of linear equations.
-	 */
 	private Matrix systemMatrix;
-	
-	/**
-	 * Number of rows in systemMatrix
-	 */
 	private int numOfRows;
-	
-	/**
-	 * Number of columns in systemMatrix
-	 */
 	private int numOfColumns;
-	
-	/**
-	 * Number of variables in system of linear equations
-	 */
 	private int numOfVariables;
-	
-	/**
-	 * Column vector of constant terms
-	 */
 	private Matrix y;
 	
-	/**
-	 * Constructs new error function for given system of linear equations.
-	 * @param systemOfLinearEquations
-	 */
-	public ErrorFunction(Matrix systemOfLinearEquations) {
-		this.numOfRows = systemOfLinearEquations.getRowDimension();
-		this.numOfColumns = systemOfLinearEquations.getColumnDimension();
-		this.systemMatrix = systemOfLinearEquations.getMatrix(0, numOfRows - 1, 0, numOfColumns - 2);
+	public ErrorFunction(Matrix systemMatrix) {
+		this.numOfRows = systemMatrix.getRowDimension();
+		this.numOfColumns = systemMatrix.getColumnDimension();
+		this.systemMatrix = systemMatrix.getMatrix(0, numOfRows - 1, 0, numOfColumns - 2);
 		this.numOfVariables = numOfColumns - 1;
 		double[][] yi = new double[numOfRows][1];
 		for(int i = 0; i < numOfRows; i++) {
-			yi[i][0] = systemOfLinearEquations.get(i, numOfColumns - 1);
+			yi[i][0] = systemMatrix.get(i, numOfColumns - 1);
 		}
 		y = new Matrix(yi);
 	}
-	
+
 	public int getNumberOfVariables() {
 		return numOfVariables;
 	}

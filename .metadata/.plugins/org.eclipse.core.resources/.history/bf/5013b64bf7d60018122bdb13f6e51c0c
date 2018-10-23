@@ -10,36 +10,17 @@ import javax.imageio.ImageIO;
 
 import Jama.Matrix;
 
-/**
- * Creates PNG image that connects given points.
- * @author filip
- *
- */
 public class ImageTrajectory {
 	
-	/**
-	 * Image
-	 */
 	private BufferedImage bi;
-	
-	/**
-	 * Point vector with dimensions (2 x 1)
-	 */
 	private Matrix x;
 	
-	/**
-	 * Creates new image and initialise it. 
-	 * @param x Starting point
-	 */
 	public ImageTrajectory(Matrix x) {
 		bi = new BufferedImage(1000, 1000, BufferedImage.TYPE_INT_ARGB);
 		this.x = x;
 		init();
 	}
 	
-	/**
-	 * Initialise of image.
-	 */
 	private void init() {
 		Graphics2D ig2 = bi.createGraphics();
 		ig2.setPaint(Color.WHITE);
@@ -62,10 +43,6 @@ public class ImageTrajectory {
 		
 	}
 	
-	/**
-	 * Puts new point on image and connects it with the last one. 
-	 * @param newX New point
-	 */
 	public void put(Matrix newX) {
 		Graphics2D ig2 = bi.createGraphics();
 		//ig2.setBackground(Color.WHITE);
@@ -78,10 +55,6 @@ public class ImageTrajectory {
 		x = newX;
 	}
 	
-	/**
-	 * Saves image on given location.
-	 * @param path Path to location
-	 */
 	public void save(String path) {
 		try {
 			ImageIO.write(bi, "PNG", new File(path));

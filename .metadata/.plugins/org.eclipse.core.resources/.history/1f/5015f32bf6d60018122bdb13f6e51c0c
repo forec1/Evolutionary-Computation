@@ -35,8 +35,6 @@ public class ErrorFunction implements IHFunction{
 	private Matrix y;
 	
 	/**
-	 * Constructs new error function for given system of linear equations.
-	 * @param systemOfLinearEquations
 	 */
 	public ErrorFunction(Matrix systemOfLinearEquations) {
 		this.numOfRows = systemOfLinearEquations.getRowDimension();

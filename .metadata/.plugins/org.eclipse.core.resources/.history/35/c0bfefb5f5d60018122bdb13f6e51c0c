@@ -20,7 +20,7 @@ public class ErrorFunction implements IHFunction{
 	private int numOfRows;
 	
 	/**
-	 * Number of columns in systemMatrix
+	 * Number of columns in system of linear equations
 	 */
 	private int numOfColumns;
 	
@@ -35,8 +35,8 @@ public class ErrorFunction implements IHFunction{
 	private Matrix y;
 	
 	/**
-	 * Constructs new error function for given system of linear equations.
-	 * @param systemOfLinearEquations
+	 * Constructs new error function
+	 * @param systemMatrix
 	 */
 	public ErrorFunction(Matrix systemOfLinearEquations) {
 		this.numOfRows = systemOfLinearEquations.getRowDimension();
@@ -45,7 +45,7 @@ public class ErrorFunction implements IHFunction{
 		this.numOfVariables = numOfColumns - 1;
 		double[][] yi = new double[numOfRows][1];
 		for(int i = 0; i < numOfRows; i++) {
-			yi[i][0] = systemOfLinearEquations.get(i, numOfColumns - 1);
+			yi[i][0] = systemMatrix.get(i, numOfColumns - 1);
 		}
 		y = new Matrix(yi);
 	}

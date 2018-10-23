@@ -10,9 +10,7 @@ public interface IFunction {
 	public int getNumberOfVariables();
 	
 	/**
-	 * Calculates value of the function for given input. Input x 
-	 * must be a vector with dimensions (N x 1) where N is 
-	 * function's number of variables. 
+	 * Calculates value of the function for given input.
 	 * @param x Input vector
 	 * @return Value of the function for given input
 	 */
@@ -20,8 +18,6 @@ public interface IFunction {
 	
 	/**
 	 * Calculates gradient vector of the function in specified point.
-	 * Input x must be a vector with dimensions (N x 1) where N is 
-	 * function's number of variables. 
 	 * @param x Input vector
 	 * @return Gradient vector in specified point
 	 */
