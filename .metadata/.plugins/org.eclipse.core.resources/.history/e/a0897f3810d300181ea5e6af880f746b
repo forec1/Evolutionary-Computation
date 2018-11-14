@@ -1,9 +1,0 @@
-package hr.fer.zemris.optjava.dz.Jednostavno;
-
-import Jama.Matrix;
-
-public interface IHFunction extends IFunction{
-	
-	public Matrix getHesseMatrix(double x);
-
-}
