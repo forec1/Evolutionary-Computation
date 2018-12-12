@@ -1,12 +1,13 @@
 package hr.fer.zemris.optjava.dz7;
 
 import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Random;
 
 import hr.fer.zemris.optjava.dz7.alg.Algorithm;
+import hr.fer.zemris.optjava.dz7.alg.ClonAlg;
 import hr.fer.zemris.optjava.dz7.alg.PSOAlgorithm;
 import hr.fer.zemris.optjava.dz7.dataset.IReadOnlyDataSet;
 import hr.fer.zemris.optjava.dz7.dataset.IrisFlowerDataSet;
@@ -23,7 +24,6 @@ public class ANNTrainer {
 		}
 		
 		String alg = args[1];
-		int d = parseAlgType(alg);
 		int n = Integer.parseInt(args[2]);
 		double merr = Double.parseDouble(args[3]);
 		int maxiter = Integer.parseInt(args[4]);
@@ -42,12 +42,17 @@ public class ANNTrainer {
 		MeanSquaredError error = new MeanSquaredError(ffann);
 		Algorithm algorithm = null;
 		if(alg.startsWith("pso")) {
+			int d = parseAlgType(alg);
 			if(d != -1) {
 				algorithm = new PSOAlgorithm(n, error, -1, 1, -5, 5, 2.0, 2.0, merr, maxiter, d);
 				
 			} else {
 				algorithm = new PSOAlgorithm(n, error, -1, 1, -5, 5, 2.0, 2.0, merr, maxiter, n / 2);
 			}
+		} else if(alg.equals("clonalg")) {
+			algorithm = new ClonAlg(error, n, 2, 3, maxiter, merr, 1);
+		} else {
+			System.err.println("Can't recognize " + alg + " as algorithm!");
 		}
 		double[] solution = algorithm.run();
 		printScores(ffann, dataset, solution);
