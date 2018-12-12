@@ -39,15 +39,15 @@ public class FFANN {
 				int inputsStartIndex = iOffset;
 				int numberOfInputs = 0;
 				ITransferFunction transferFunction = null;
-				boolean inputLayer = true;
+				boolean isInputLayer = true;
 				if(i != 0) {
 					numberOfInputs = networkConfiguration[i - 1];
 					wOffset += numberOfInputs;
 					wOffset += 1;	//tezina samo za taj neuron, ako nije u ulaznom sloju
 					transferFunction = transferFunctions[i - 1];
-					inputLayer = false;
+					isInputLayer = false;
 				}
-				neurons.add(new Neuron(transferFunction, weightsStartIndex, inputsStartIndex, numberOfInputs, oOffset, inputLayer));
+				neurons.add(new Neuron(transferFunction, weightsStartIndex, inputsStartIndex, numberOfInputs, oOffset, isInputLayer));
 				oOffset++;				
 			}
 			if(i != 0) {

@@ -4,7 +4,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
+import hr.fer.zemris.optjava.dz7.alg.Algorithm;
+import hr.fer.zemris.optjava.dz7.alg.PSOAlgorithm;
 import hr.fer.zemris.optjava.dz7.dataset.IReadOnlyDataSet;
 import hr.fer.zemris.optjava.dz7.dataset.IrisFlowerDataSet;
 import hr.fer.zemris.optjava.dz7.function.ITransferFunction;
@@ -20,9 +23,10 @@ public class ANNTrainer {
 		}
 		
 		String alg = args[1];
-		int n = Integer.parseInt(args[1]);
-		double merr = Double.parseDouble(args[2]);
-		int maxiter = Integer.parseInt(args[3]);
+		int d = parseAlgType(alg);
+		int n = Integer.parseInt(args[2]);
+		double merr = Double.parseDouble(args[3]);
+		int maxiter = Integer.parseInt(args[4]);
 		
 		IReadOnlyDataSet dataset = loadData(args[0]);
 		System.out.println("Imamo uzoraka za ucenje: " + dataset.numberOfSamples());
@@ -34,15 +38,61 @@ public class ANNTrainer {
 							new SigmoidTransferFunction()
 							//new LinearTransferFunction()
 					},
-					dataset);
-		int numberOfWeights = ffann.getWeightsCount();
-		double[] weights = new double[numberOfWeights];
-		for(int i = 0; i < weights.length; i++) {
-			weights[i] = 0.1;
-		}
+					dataset);		
 		MeanSquaredError error = new MeanSquaredError(ffann);
-		System.out.println("error: " + error.value(weights));
+		Algorithm algorithm = null;
+		if(alg.startsWith("pso")) {
+			if(d != -1) {
+				algorithm = new PSOAlgorithm(n, error, -1, 1, -5, 5, 2.0, 2.0, merr, maxiter, d);
+				
+			} else {
+				algorithm = new PSOAlgorithm(n, error, -1, 1, -5, 5, 2.0, 2.0, merr, maxiter, n / 2);
+			}
+		}
+		double[] solution = algorithm.run();
+		printScores(ffann, dataset, solution);
 
+	}
+	
+	private static int parseAlgType(String alg) {
+		String[] split = alg.split("-");
+		if(split[1].equals("b")) {
+			return Integer.parseInt(split[2]);
+		}
+		return -1;
+	}
+	
+	public static void printScores(FFANN ffann, IReadOnlyDataSet dataset, double[] solution) {
+		double[] clasResults = new double[dataset.numberOfOutputs()];
+		int correctCnt = 0;
+		for(int i = 0, m = dataset.numberOfSamples(); i < m; i++) {
+			double[] inputs = dataset.getInputSample(i);
+			double[] outputs = dataset.getOutputSample(i);
+			boolean isCorrect = true;
+			
+			ffann.calcOutputs(inputs, solution, clasResults);
+			
+			for(int j = 0; j < clasResults.length; j++) {
+				clasResults[j] = clasResults[j] >= 0.5 ? 1.0 : 0.0;
+				if(clasResults[j] != outputs[j]) {
+					isCorrect = false;
+				}
+			}
+			correctCnt = isCorrect ? correctCnt + 1 : correctCnt;
+			System.out.print(i + ". calc ");
+			for(double clasRes : clasResults) {
+				System.out.print((int)clasRes);
+			}
+			System.out.print(" ~ ");
+			for(double output : outputs) {
+				System.out.print((int)output);
+			}
+			System.out.print(" true");
+			System.out.println();
+			
+		}
+		
+		System.out.println("Eff: " + correctCnt + "/" + dataset.numberOfSamples());
 	}
 	
 	public static IReadOnlyDataSet loadData(String path) throws IOException {
