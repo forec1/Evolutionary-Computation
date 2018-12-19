@@ -6,7 +6,7 @@ import java.util.List;
 import hr.fer.zemris.optjava.dz8.dataset.IReadOnlyDataSet;
 import hr.fer.zemris.optjava.dz8.function.ITransferFunction;
 
-public class TDNN {
+public class TDNN implements NeuralNetwork{
 	
 	private int[] networkConfiguration;
 	private ITransferFunction[] transferFunctions;
@@ -47,7 +47,8 @@ public class TDNN {
 //					transferFunction = transferFunctions[i - 1];
 					isInputLayer = false;
 				}
-				neurons.add(new Neuron(transferFunction, weightsStartIndex, inputsStartIndex, numberOfInputs, oOffset, isInputLayer));
+				neurons.add(new Neuron(transferFunction, weightsStartIndex, inputsStartIndex, 
+						numberOfInputs, oOffset, isInputLayer, false));
 				oOffset++;				
 			}
 			if(i != 0) {
@@ -74,6 +75,11 @@ public class TDNN {
 			outputs[j] = inputsAndOutputs[i];
 		}
 		
+	}
+	
+	@Override
+	public void resetContext() {
+		return;
 	}
 	
 	public int getWeightsCount() {

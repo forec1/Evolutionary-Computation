@@ -7,12 +7,12 @@ import java.util.List;
 public class SantaFeLaserGeneratedDataSet implements IReadOnlyDataSet{
 
 	private int numberOfSamples;
-	private int numbeOfInputs;
+	private int numberOfInputs;
 	List<double[]> samples;
 	
 	public SantaFeLaserGeneratedDataSet(int numberOfSamples, int numbeOfInputs) {
 		this.numberOfSamples = numberOfSamples;
-		this.numbeOfInputs = numbeOfInputs;
+		this.numberOfInputs = numbeOfInputs;
 		this.samples = new LinkedList<>();
 	}
 	
@@ -27,7 +27,7 @@ public class SantaFeLaserGeneratedDataSet implements IReadOnlyDataSet{
 
 	@Override
 	public int numberOfInputs() {
-		return numbeOfInputs;
+		return numberOfInputs;
 	}
 
 	@Override
@@ -42,12 +42,12 @@ public class SantaFeLaserGeneratedDataSet implements IReadOnlyDataSet{
 
 	@Override
 	public double[] getInputSample(int index) {
-		return Arrays.copyOfRange(samples.get(index), 0, numbeOfInputs);
+		return Arrays.copyOfRange(samples.get(index), 0, numberOfInputs);
 	}
 
 	@Override
 	public double[] getOutputSample(int index) {
-		return Arrays.copyOfRange(samples.get(index), numbeOfInputs, numbeOfInputs + 1);
+		return Arrays.copyOfRange(samples.get(index), numberOfInputs, numberOfInputs + 1);
 	}
 
 }

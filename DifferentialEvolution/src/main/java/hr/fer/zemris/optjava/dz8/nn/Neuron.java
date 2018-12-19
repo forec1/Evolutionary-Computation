@@ -10,9 +10,11 @@ public class Neuron {
 	private int numberOfInputs;
 	private int outputIndex;
 	private boolean inputLayer;
+	private boolean isContexLayer;
+	private double output;
 
 	public Neuron(ITransferFunction transferFunction, int weightsStartIndex, int inputsStartIndex, int numberOfInputs,
-			int outputIndex, boolean inputLayer) {
+			int outputIndex, boolean inputLayer, boolean isContextLayer) {
 		super();
 		this.transferFunction = transferFunction;
 		this.weightsStartIndex = weightsStartIndex;
@@ -20,6 +22,7 @@ public class Neuron {
 		this.numberOfInputs = numberOfInputs;
 		this.outputIndex = outputIndex;
 		this.inputLayer = inputLayer;
+		this.isContexLayer = isContextLayer;
 	}
 
 	private double calculateNet(double[] weights, double[] inputsAndOutputs) {
@@ -33,11 +36,32 @@ public class Neuron {
 	
 	public double[] calcOutput(double[] weights, double[] inputsAndOutputs) {
 		if(inputLayer) { return inputsAndOutputs; }
+		if(isContexLayer) {
+			inputsAndOutputs[outputIndex] = output;
+			return inputsAndOutputs;
+		}
 		double net = calculateNet(weights, inputsAndOutputs);
 		double output = transferFunction.valueAt(net);
 		inputsAndOutputs[outputIndex] = output;
 		return inputsAndOutputs;
 	}
 	
+	public void setOutput(double output) {
+		if(isContexLayer) {
+			this.output = output;
+		}
+	}
+	
+	public double getOutput() {
+		return output;
+	}
+	
+	public boolean isContextLayer() {
+		return isContexLayer;
+	}
+	
+	public int getOutputIndex() {
+		return outputIndex;
+	}
 	
 }
