@@ -23,13 +23,15 @@ public class NSGA {
 	private Random rand;
 	private double sigmaShare;
 	private double alpha;
+	private int method;
 	
-	public NSGA(MOOPProblem problem, int populationSize, int maxiter, double sigmaShare, double alpha) {
+	public NSGA(MOOPProblem problem, int populationSize, int maxiter, double sigmaShare, double alpha, int method) {
 		this.problem = problem;
 		this.populationSize = populationSize;
 		this.maxiter = maxiter;
 		this.sigmaShare = sigmaShare;
 		this.alpha = alpha;
+		this.method = method;
 		this.population = new LinkedList<>();
 		this.nextPopulation = new LinkedList<>();
 		this.helpList = new LinkedList<>();
@@ -174,7 +176,10 @@ public class NSGA {
 	private double calcNCi(Solution sol) {
 		double nci = 0.0;
 		for(int i = 0; i < populationSize; i++) {
-			double d = calcDistance(sol, population.get(i));
+//			double d = calcDistance(sol, population.get(i));
+			Solution test = population.get(i);
+			double d = method == 1 ? calcDistance(() -> sol.getX(), () -> test.getX()) 
+					: calcDistance(() -> sol.getF(), () -> test.getF());;
 			nci += sh(d);
 		}
 		return nci;
@@ -191,21 +196,37 @@ public class NSGA {
 		return 1.0 - Math.pow(d / sigmaShare, alpha);
 	}
 	
-	private double calcDistance(Solution sol1, Solution sol2) {
-		double[] Xi = sol1.getX();
-		double[] Xj = sol2.getX();
-		double maxXi = Arrays.stream(Xi).max().getAsDouble();
-		double maxXj = Arrays.stream(Xj).max().getAsDouble();
-		double minXi = Arrays.stream(Xi).min().getAsDouble();
-		double minXj = Arrays.stream(Xj).min().getAsDouble();
-		double max = Math.max(maxXi, maxXj);
-		double min = Math.min(minXi, minXj);
+	private double calcDistance(IMethod m1, IMethod m2) {
+		double[] datai = m1.getData();
+		double[] dataj = m2.getData();
+		double maxDatai = Arrays.stream(datai).max().getAsDouble();
+		double maxDataj = Arrays.stream(dataj).max().getAsDouble();
+		double minDatai = Arrays.stream(datai).min().getAsDouble();
+		double minDataj = Arrays.stream(dataj).min().getAsDouble();
+		double max = Math.max(maxDatai, maxDataj);
+		double min = Math.min(minDatai, minDataj);
 		double d = 0.0;
-		for(int i = 0; i < Xi.length; i++) {
-			d += Math.pow((Xi[i] - Xj[i]) / (max - min), 2);
+		for(int i = 0; i < datai.length; i++) {
+			d += Math.pow((datai[i] - dataj[i]) / (max - min), 2);
 		}
 		return Math.sqrt(d);
 	}
+	
+//	private double calcDistance(Solution sol1, Solution sol2) {
+//		double[] Xi = sol1.getX();
+//		double[] Xj = sol2.getX();
+//		double maxXi = Arrays.stream(Xi).max().getAsDouble();
+//		double maxXj = Arrays.stream(Xj).max().getAsDouble();
+//		double minXi = Arrays.stream(Xi).min().getAsDouble();
+//		double minXj = Arrays.stream(Xj).min().getAsDouble();
+//		double max = Math.max(maxXi, maxXj);
+//		double min = Math.min(minXi, minXj);
+//		double d = 0.0;
+//		for(int i = 0; i < Xi.length; i++) {
+//			d += Math.pow((Xi[i] - Xj[i]) / (max - min), 2);
+//		}
+//		return Math.sqrt(d);
+//	}
 	
 	private void makeFronts() {
 		helpList.addAll(population);
