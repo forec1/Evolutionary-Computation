@@ -1,0 +1,8 @@
+Argumenti komandne linije:
+
+1. fja: 1 za prvi problem, 2 za drugi problem,
+2. n: željena veličina populacije,
+3. vrsta: prostor u kojem se računa funkcija dijeljenja,
+4. maxiter: maksimalni broj generacija/epoha.
+5. sigma share: parametar za algoritam s raspodjelom funckije
+6. alpha: parametar za algoritam s raspodjelom funckije
