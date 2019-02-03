@@ -1,0 +1,3 @@
+broj kvadrata: 200
+velicina populacije: 40
+maxiter: 30000
